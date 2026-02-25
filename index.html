@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Message for Soha ❤️</title>
+
+<style>
+  body {
+    margin: 0;
+    background: #ece5dd;
+    font-family: "Segoe UI", Arial, sans-serif;
+  }
+
+  .chat {
+    max-width: 420px;
+    margin: auto;
+    padding: 15px;
+  }
+
+  .bubble {
+    max-width: 75%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin: 8px 0;
+    font-size: 15px;
+    line-height: 1.4;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .left {
+    background: #fff;
+  }
+
+  .right {
+    background: #dcf8c6;
+    margin-left: auto;
+  }
+
+  .buttons {
+    margin-top: 15px;
+    position: relative;
+    height: 120px;
+    width: 100%;
+  }
+
+  button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    position: absolute;
+  }
+
+  #yes {
+    background: #25d366;
+    color: white;
+    left: 20%;
+    top: 40px;
+  }
+
+  #no {
+    background: #aaa;
+    left: 60%;
+    top: 40px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="chat" id="chat"></div>
+
+<script>
+  const chat = document.getElementById("chat");
+
+  function addMessage(text, side, delay) {
+    setTimeout(() => {
+      const div = document.createElement("div");
+      div.className = `bubble ${side}`;
+      div.innerText = text;
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+    }, delay);
+  }
+
+  // 💬 New Chat Sequence for Soha
+  addMessage("Hey Soha 😊", "left", 500);
+  addMessage("Aaj thoda serious baat karni thi tumse ❤️", "left", 1500);
+  addMessage("Kabhi kabhi main galti kar deta hoon… but trust me Soha, I never want to hurt you 🥺", "left", 2500);
+  addMessage("Tum meri life ka sabse beautiful part ho ✨", "left", 3500);
+  addMessage("Bas ek chota sa sawaal hai Soha…", "left", 4500);
+  addMessage("Do you love me? ❤️🙈", "left", 5500);
+
+  // Show buttons
+  setTimeout(() => {
+    const btnBox = document.createElement("div");
+    btnBox.className = "buttons";
+    btnBox.innerHTML = `
+      <button id="yes">Yes 😍</button>
+      <button id="no">No 😒</button>
+    `;
+    chat.appendChild(btnBox);
+
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+
+    const moveNo = () => {
+      const maxX = btnBox.clientWidth - noBtn.offsetWidth;
+      const maxY = btnBox.clientHeight - noBtn.offsetHeight;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
+    };
+
+    noBtn.addEventListener("mouseover", moveNo);
+    noBtn.addEventListener("touchstart", moveNo);
+
+    yesBtn.addEventListener("click", () => {
+      btnBox.remove();
+      addMessage("Mujhe pata tha Soha 😭❤️", "right", 200);
+      addMessage("Tum meri duniya ho ❤️", "right", 900);
+      addMessage("Next time milenge to treat meri taraf se 💕", "right", 1600);
+      addMessage("Ab smile karo Soha 😊✨", "right", 2300);
+    });
+
+  }, 6500);
+</script>
+
+</body>
+</html>
